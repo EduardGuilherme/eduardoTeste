@@ -20,10 +20,8 @@ const ClimaForm:React.FC<ClimaFormProps> =({ onSubmit }) => {
         console.error('CNPJ não é uma string válida');
         return;
       }
-      console.log(cnpj)
       const response = await axios.get(`http://localhost:8080/consultar?cnpj=${cnpj}`);
       const responseData = response.data;
-      console.log(responseData)
       
       onSubmit(responseData); 
     } catch (error) {
